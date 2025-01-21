@@ -1,0 +1,711 @@
+@font-face {
+  font-family: 'Font1';
+  src: url("assets/fonts/letter1.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'Font2';
+  src: url("assets/fonts/KGBlankSpaceSolid.ttf") format('truetype');
+}
+
+* {
+  font-family: 'Font1', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Black w/ opacity */
+}
+
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #cfddcc;
+  border-radius: 20px;
+  margin: 4% auto;
+  padding: 20px;
+  font-size: 25px;
+  letter-spacing: 1px;
+  color: rgb(0, 0, 0);
+  font-weight: bolder;
+  border: 5px solid #649565;
+  width: 30%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#profileForm,
+#profileForm>div {
+  display: flex;
+  flex-direction: column;
+}
+
+#profileForm {
+  gap: 20px;
+  width: 80%;
+  margin-bottom: 15%;
+}
+
+#profileForm>div,
+.contentEditForm {
+  gap: 5px;
+}
+
+.contentEditForm {
+  width: 100%;
+}
+
+.TitleEditProfile {
+  font-size: 30px;
+}
+
+#profileForm>div>input {
+
+  font-size: 20px;
+  width: 96%;
+  padding: 0 2%;
+}
+
+.homepagePosts,
+.homepage {
+  width: 100%;
+  min-height: 100%;
+}
+
+.homepagePosts {
+  gap: 20px;
+}
+
+html,
+body {
+  background-size: 100% 100%;
+  min-width: 100%;
+  min-height: 100%;
+  display: flex;
+}
+
+body {
+  background: linear-gradient(#f3f5ef, #b3db74);
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  padding-top: 0%;
+  margin-top: 0%;
+}
+
+.background-layer {
+  position: fixed;
+  pointer-events: none;
+  background: url('assets/images/patron2.avif');
+  opacity: 0.2;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+/* #input-container>button, */
+.saveEditProfileButton,
+.TitleEditProfile,
+.editPublic,
+.headerPost,
+.postTitle,
+.inputTitle,
+.buttonSave,
+.editTextarea,
+.saveEditButton,
+.deleteButton,
+.editButton,
+.username {
+  font-family: 'Font2', sans-serif;
+}
+
+/*MOBILE FIRST VISTA REGISTRO */
+/* #input-container>div {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  text-align: left;
+}
+
+#input-container>div label {
+  width: 100%;
+  font-size: 20px;
+}
+
+#input-container>div input {
+  font-size: 20px;
+  width: 100%;
+  height: 2em;
+  border-radius: 0.7em;
+  box-shadow: 3px 3px 2px rgb(32, 32, 32);
+}
+
+#input-container>button {
+  box-shadow: 3px 3px 4px black;
+  width: 90%;
+  height: 2em;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  background-color: #D09080;
+  color: #57403A;
+  font-size: 85%;
+  border-color: transparent;
+  display: flex;
+  flex-direction: row;
+  place-content: center;
+  align-items: center;
+  gap: 10px;
+} */
+
+
+/* 
+.googleLoginBtn {
+  border-radius: 5px;
+  box-shadow: 3px 3px 4px black;
+  border: 1px solid #000;
+  margin-top: 1em;
+} */
+
+.success,
+.error {
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}
+
+/*MOBILE FIRST VISTA PRINCIPAL*/
+
+
+
+/* #input-container, */
+.post-contain,
+#task-form,
+.homepagePosts,
+.homepage,
+.pictureAndUsername,
+.contentEditForm {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+}
+
+
+
+.TitleEditProfile,
+.editPublic,
+.login,
+/* #input-container, */
+/* #input-container>div input, */
+.pictureAndUsername {
+  text-align: center;
+}
+
+/* #input-container {
+  width: 90%;
+  font-weight: bolder;
+} */
+
+
+/* #homeplant:hover, */
+.logoImage:hover {
+  transform: rotate(10deg);
+}
+
+
+/* #input-container>button:hover, */
+.buttonSave:hover {
+  background-color: #57403A;
+  color: #D09080;
+}
+
+/*MOBILEFIRST DE VISTA DE POSTS*/
+.headerPost {
+  width: 100%;
+  height: 100px;
+  background-color: #7e957d;
+  place-content: center;
+  align-items: center;
+  font-size: 250%;
+  display: flex;
+  color: white;
+  -webkit-text-stroke: 2px black;
+  gap: 2px;
+}
+
+.logoImage {
+  width: 40px;
+  height: auto;
+}
+
+
+.logOutButton {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  place-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-color: transparent;
+  border-radius: 45px;
+  transition: transform 0.2s ease;
+}
+
+.logOutButton:hover {
+  transform: scale(1.1);
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 12px 1px rgba(255, 255, 255, 1);
+  -moz-box-shadow: 0px 0px 12px 1px rgba(255, 255, 255, 1);
+  box-shadow: 0px 0px 12px 1px rgba(255, 255, 255, 1);
+}
+
+.logOutButton img {
+  width: 60%;
+}
+
+.publication-alert-and-input-image {
+  display: flex;
+  flex-direction: row;
+  place-content: center;
+  width: 90%;
+  justify-content: space-between;
+}
+
+@keyframes fadeOut {
+  0% {
+    color: red;
+  }
+
+  50% {
+    color: red;
+  }
+
+  100% {
+    color: transparent;
+  }
+}
+
+@keyframes fadeOutGreen {
+  0% {
+    color: rgb(0, 165, 19);
+  }
+
+  50% {
+    color: rgb(0, 165, 19);
+  }
+
+  100% {
+    color: transparent;
+  }
+}
+
+.empty-fields,
+.alert-post-error {
+  display: none;
+  animation: fadeOut 1s linear forwards;
+}
+
+.alert-post-edited {
+  display: none;
+  animation: fadeOutGreen 1s linear forwards;
+}
+
+.containerPublication {
+  width: 100%;
+  display: flex;
+  place-content: center;
+  align-self: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.imagePublication {
+  width: 70px;
+  height: auto;
+  background-color: white;
+  border: solid black;
+  border-radius: 1em;
+  padding: 0.5em;
+}
+
+.pictureAndUsername {
+  gap: 2px;
+  background-color: #d8bbb3;
+  width: fit-content;
+  font-weight: bolder;
+  border-radius: 1em;
+  height: fit-content;
+  padding: 1% 1%;
+}
+
+.editProfileButton,
+.saveEditProfileButton {
+  border-radius: 0.5em;
+  background-color: #57403A;
+  border: none;
+  color: white;
+  padding: 3px 10px;
+  font-size: 15px;
+  font-weight: bolder;
+  letter-spacing: 1px;
+}
+
+.editProfileButton:hover,
+.saveEditProfileButton:hover {
+  transform: scale(1.1);
+}
+
+.ListGroupItem {
+  border: solid #57403A;
+  background-color: #7e957d;
+  border-radius: 1em;
+  width: 70%;
+  gap: 1%;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  box-shadow: 3px 3px 9px black;
+}
+
+.post-contain {
+  gap: 5px;
+  height: auto;
+  width: 100%;
+  height: 90%;
+}
+
+.postTitle {
+  font-size: 150%;
+  text-align: left;
+  color: #382925;
+  padding-left: 3%;
+  width: 95%;
+  word-wrap: break-word;
+}
+
+.postDescription {
+  padding: 0 1%;
+  width: 94%;
+  height: 80%;
+  font-size: 150%;
+  background-color: aliceblue;
+  border: solid #57403A 2px;
+  border-radius: 0.2em;
+  word-wrap: break-word;
+}
+
+.containerLikes {
+  height: 35px;
+  display: flex;
+  place-content: left;
+  align-items: center;
+  gap: 10px;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-bottom: 1.5%;
+}
+
+.imgLike {
+  width: auto;
+  height: 75%;
+}
+
+/* Estilo inicial del botón de "like" */
+.likeButton {
+  display: flex;
+  place-content: center;
+  align-items: center;
+  background-color: transparent;
+  width: 30px;
+  height: 30px;
+  border-radius: 40px;
+  margin-left: 3%;
+  transition: transform 0.1s ease;
+}
+
+.likeButton:hover {
+  transform: rotate(5deg) scale(1.1);
+  background-color: #92695f;
+  border-style: none;
+}
+
+#likedButtonAndPostByUSer {
+  background-color: #92695f;
+}
+
+.imgPostPublication {
+  width: 60%;
+  height: auto;
+  align-self: center;
+}
+
+#task-form {
+  background-color: #a38a83;
+  width: 60%;
+  height: 300px;
+  border: solid #57403A;
+  border-radius: 1em;
+  gap: 5px;
+}
+
+.inputTitle {
+  text-align: center;
+  font-size: 150%;
+  width: 93%;
+}
+
+#inputDescription {
+  height: 58%;
+  font-size: 200%;
+  padding: 1% 2%;
+  width: 90%;
+}
+
+.inputTitle,
+#inputDescription,
+#profileForm>div>input {
+  border-radius: 0.3em;
+}
+
+.buttonSave {
+  border-radius: 0.4em;
+  width: auto;
+  height: 20%;
+  margin-right: 2%;
+  align-self: flex-end;
+  font-size: 1.2em;
+  padding: 0 2%;
+  transition: background-color 0.3s;
+  background-color: #57403A;
+  color: #f5bdaf;
+}
+
+.editPublicContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3%;
+  padding: 0 0 2% 0;
+}
+
+.editTextarea,
+.editContentTextarea {
+  border-radius: 10px;
+  border-style: none;
+  padding: 0 1%;
+  width: 89%;
+}
+
+.editTextarea {
+  font-size: 120%;
+  height: 20%;
+}
+
+.editContentTextarea {
+  font-size: 150%;
+  font-weight: bolder;
+  height: 50%;
+}
+
+.editPublic {
+  font-size: 120%;
+  width: 100%;
+  background-color: #57403A;
+  color: white;
+  letter-spacing: 2px;
+}
+
+.saveEditButton {
+  font-size: 100%;
+  border-radius: 10px;
+  place-content: center;
+  background: #4c594b;
+  width: 30%;
+  align-self: center;
+  color: white;
+}
+
+.saveEditButton:hover {
+  background-color: white;
+  color: #4c594b;
+}
+
+.buttonOptions {
+  height: 30px;
+  display: flex;
+  place-content: end;
+  align-items: center;
+  margin: 2% 2% 0 0;
+  gap: 5px;
+}
+
+.deleteButton,
+.editButton {
+  width: auto;
+  padding: 0 1%;
+  border-radius: 10px;
+  height: 90%;
+}
+
+.deleteButton:hover,
+.editButton:hover {
+  background-color: #382925;
+  color: #71bd6b;
+}
+
+/* Estilos para pantallas de escritorio */
+@media only screen and (min-width: 920px) {
+
+  /*VISTA PRINCIPAL*/
+
+
+
+  /* .hometitle {
+    font-size: 50px;
+  } */
+
+  /*ESTILO DE LA VISTA DE REGISTO*/
+  #homeplant {
+    width: 25%;
+  }
+
+  /* #input-container {
+    width: 50%;
+    gap: 15px;
+  }
+
+  #input-container>div label {
+    font-size: 1.9em;
+  }
+
+  #input-container>button {
+    width: 60%;
+    height: 2.5em;
+    border-radius: 0.6em;
+    font-size: 1.1em;
+  } */
+
+
+  .success,
+  .error {
+    font-size: 25px;
+  }
+
+  .headerPost {
+    margin: 0%;
+    font-size: 400%;
+    gap: 20px;
+  }
+
+  .logoImage {
+    width: 60px;
+    height: auto;
+    transition: transform 0.3s;
+  }
+
+  .postView {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    grid-auto-rows: minmax(260px, auto);
+    grid-gap: 15px;
+    place-content: center;
+    margin-bottom: 5%;
+  }
+
+  .ListGroupItem {
+    width: 100%;
+    height: 100%;
+  }
+
+  .postTitle {
+    font-size: 25px;
+  }
+
+  .postDescription {
+    font-size: 24px;
+  }
+
+  .containerPublication {
+    gap: 15px;
+  }
+
+  .imagePublication {
+    width: 90px;
+    height: auto;
+  }
+
+  #task-form {
+    width: 50%;
+    height: 280px;
+  }
+
+  .inputTitle {
+    height: 12%;
+    font-size: 25px;
+  }
+
+  #inputDescription {
+    height: 49%;
+    font-size: 20px;
+  }
+
+  .buttonSave {
+    height: 15%;
+    font-size: 1.5em;
+  }
+
+  .logOutButton {
+    margin-left: 85%;
+    z-index: 3;
+    position: absolute;
+  }
+
+}

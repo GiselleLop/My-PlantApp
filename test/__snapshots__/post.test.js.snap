@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`posts Snapshot of posts 1`] = `
+<div>
+  <div
+    class="homepage"
+    id="homepagePostes"
+  >
+    <div
+      class="background-layer"
+    />
+    <div
+      class="headerPost"
+    >
+      Mi Plantapp
+      <img
+        class="logoImage"
+        src="https://firebasestorage.googleapis.com/v0/b/social-network-c61c9.appspot.com/o/img%2Fplanta-arana.png?alt=media&token=836eab90-f526-44b6-b147-076dfff7cd62"
+      />
+      <button
+        class="logOutButton"
+      >
+        <img
+          src="https://firebasestorage.googleapis.com/v0/b/social-network-c61c9.appspot.com/o/img%2Fsalir.png?alt=media&token=88e1e584-e158-446a-bd54-6f4da6ddf03b"
+        />
+      </button>
+    </div>
+    <div
+      class="containerPubication"
+    >
+      <img
+        class="imagePublication"
+        src="https://firebasestorage.googleapis.com/v0/b/social-network-c61c9.appspot.com/o/img%2Fmujer.png?alt=media&token=701d2fdc-675b-4550-b43f-162075eb0943"
+      />
+      <form
+        id="task-form"
+      >
+        <input
+          class="postTitle"
+          placeholder="Título de la publicación."
+          type="text"
+        />
+        <textarea
+          id="postText"
+          placeholder="Ingresa el contenido de la publicación."
+        />
+        <input
+          accept="image/*"
+          id="post-image"
+          type="file"
+        />
+        <button
+          class="buttonSave"
+        >
+          Publicar
+        </button>
+      </form>
+    </div>
+    <div
+      class="postView"
+    >
+      <p>
+         Aun no hay publicaciones 
+      </p>
+    </div>
+  </div>
+</div>
+`;

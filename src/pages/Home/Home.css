@@ -1,0 +1,115 @@
+/* mobile first */
+.homePageWelcome {
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+
+}
+
+.mainContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    text-align: center;
+    width: 90%;
+    font-weight: bolder;
+}
+
+.homeplant {
+    display: flex;
+    transition: transform 0.3s;
+}
+
+.homeplant:hover {
+    transform: rotate(10deg);
+}
+
+
+
+.homeWelcomeAndText {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    width: 100%;
+    height: auto;
+}
+
+.homeSubtitle {
+    font-size: 40px;
+}
+
+.homeTitle {
+    font-family: 'Font2', sans-serif;
+    font-size: 300%;
+    text-align: center;
+
+}
+
+.orderbuttons {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    font-size: 25px;
+    gap: 15px;
+}
+
+.registerButton,
+.loginButton {
+    letter-spacing: 2px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #D09080;
+    color: #57403A;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    /* Espacio entre los botones */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    justify-content: space-around;
+    height: auto;
+    width: auto;
+    font-weight: bolder;
+    font-size: 80%;
+    font-family: 'Font2', sans-serif;
+}
+
+.registerButton:hover,
+.loginButton:hover {
+    background-color: #57403A;
+    color: #D09080;
+}
+
+/* .wordsHome {
+    text-align: center;
+    font-size: 150%;
+
+} */
+
+/* computer */
+@media only screen and (min-width: 920px) {
+    .homePageWelcome {
+        flex-direction: row;
+        gap: 1%;
+    }
+
+    .mainContainer {
+        width: 60%;
+        gap: 30px;
+    }
+
+    .homeplant {
+        width: 25%;
+    }
+
+    .homeTitle {
+        font-size: 50px;
+    }
+}

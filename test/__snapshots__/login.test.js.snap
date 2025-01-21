@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renderLogin Snapshot of login 1`] = `
+<div>
+  <div
+    class="homepage1"
+  >
+    <header
+      class="headerRegister"
+    >
+      <h1
+        class="titleLogin"
+      >
+        ¡Nos alegra verte de nuevo!
+      </h1>
+      <h2
+        class="titleLogin"
+      >
+        Ingresa tus datos
+      </h2>
+      <img
+        class="titleLogin"
+        src="https://firebasestorage.googleapis.com/v0/b/social-network-c61c9.appspot.com/o/img%2Fregadera.png?alt=media&token=b6994595-5975-4a79-a110-686525ba4d5f"
+        style="width: 40%; height: auto;"
+      />
+    </header>
+    <div
+      class="Inputcontainer"
+    >
+      <h3
+        class="h4Register"
+      >
+        Correo Electrónico:
+      </h3>
+      <input
+        class="input"
+        id="emailLog"
+        type="email"
+      />
+      <h3
+        class="h4Register"
+      >
+        Contraseña:
+      </h3>
+      <input
+        class="input"
+        id="passwordLogin"
+        type="password"
+      />
+      <span
+        id="answerPass"
+      />
+      <button
+        class="buttonRegister"
+        id="sessionBtn"
+      >
+        Iniciar sesión
+      </button>
+      <h4
+        id="or"
+      >
+        o
+      </h4>
+      <button
+        class="buttonRegister"
+        id="google"
+      >
+        <img
+          class="imgGoogle"
+          src="https://firebasestorage.googleapis.com/v0/b/social-network-c61c9.appspot.com/o/img%2Fgoogleongpng.webp?alt=media&token=0bf583ce-00aa-467b-9101-654e9fe9aabd"
+        />
+        <h2>
+          Iniciar sesión con Google
+        </h2>
+      </button>
+      <button
+        class="buttonRegister"
+        id="return"
+      >
+        Volver
+      </button>
+    </div>
+  </div>
+</div>
+`;
