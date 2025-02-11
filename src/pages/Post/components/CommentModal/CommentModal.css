@@ -1,0 +1,314 @@
+.mainCommentModal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal_comment_content {
+    background-color: #D9D9D9;
+    border-radius: 15px;
+
+    width: 85%;
+    height: 70%;
+
+    padding: 30px 10px;
+    font-size: 25px;
+    letter-spacing: 1px;
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.header_comment_modal {
+    display: flex;
+    width: 92%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.title_post_by {
+    font-family: "Konkhmer Sleokchher", serif;
+    font-size: 18px;
+    font-weight: 100;
+    -webkit-text-stroke-width: 0.3px;
+}
+
+.post_contain {
+    font-family: "Hammersmith One", serif;
+    font-size: 15px;
+    font-weight: 100;
+    -webkit-text-stroke-width: 0.2px;
+    display: flex;
+    align-items: center;
+}
+
+.content_post_C {
+    display: flex;
+    width: 84%;
+    height: 7%;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    padding: 7px 20px;
+}
+
+.container_comments_main {
+    width: 98%;
+    height: 81%;
+
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_comments {
+    background-color: #ffffff;
+    border-radius: 5px 5px 0 0;
+    padding: 7px 10px;
+    height: 90%;
+    overflow-y: scroll;
+}
+
+.comment_user_container {
+    background-color: #9FA89D;
+    height: 10%;
+    padding: 7px 10px;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.container_image_profile_user,
+.comment_image_container {
+    width: 30px;
+    height: 30px;
+}
+
+.user_profile_photo,
+.profile_image_comment {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.input_to_comment {
+    width: 72%;
+    background-color: #D9D9D9;
+    border: none;
+    font-family: "Hammersmith One", serif;
+    height: 70%;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 0 5px;
+}
+
+.error-border {
+    border: 1px solid rgb(122, 44, 44);
+    background-color: #ffe9e9;
+    /* border: none; */
+}
+
+.send_comment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: min-content;
+    height: 52%;
+    border: none;
+    background-color: transparent;
+}
+
+
+.send_comment:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.image_button_comment {
+    height: 100%;
+    width: auto;
+}
+
+.container_comments {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.main_comment_container,
+.comment_user_info {
+    display: flex;
+    flex-direction: row;
+}
+
+.main_comment_container {
+    align-items: center;
+    justify-content: center;
+    gap: 5px
+}
+
+.comment_user_info {
+    gap: 6px;
+    align-items: center;
+}
+
+.comment_contain {
+    background-color: #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 81%;
+    border-radius: 5px;
+    padding: 6px 8px;
+    justify-content: center;
+}
+
+.userName_comm {
+    font-family: "Konkhmer Sleokchher", serif;
+    font-size: 15px;
+    font-weight: 100;
+    -webkit-text-stroke-width: 0.2px;
+}
+
+.date_comm {
+    font-family: "Konkhmer Sleokchher", serif;
+    font-size: 11px;
+    font-weight: 100;
+    -webkit-text-stroke-width: 0.1px;
+    color: #686868;
+}
+
+.comm_user_content {
+    font-family: "Hammersmith One", serif;
+    font-size: 13px;
+    font-weight: 100;
+    /* -webkit-text-stroke-width: 0.2px; */
+}
+
+.no_comments {
+    font-family: "Hammersmith One", serif;
+    font-size: 15px;
+    font-weight: 100;
+    -webkit-text-stroke-width: 0.2px;
+    color: #686868;
+    padding: 5px 8px;
+}
+
+/* Estilos para celulares (pantallas menores a 600px) */
+@media only screen and (min-width: 361px) and (max-width: 599px) {
+
+    /* Tus estilos para celulares aquí */
+    .container_comments_main {
+        width: 98%;
+        height: 85%;
+    }
+
+    .content_post_C {
+        width: 85%;
+    }
+
+
+}
+
+/* Estilos para tablets (pantallas entre 600px y 919px) */
+@media only screen and (min-width: 600px) and (max-width: 919px) {
+    .modal_comment_content {
+        width: 80%;
+        height: 70%;
+    }
+
+    .content_post_C {
+        height: 5%;
+    }
+
+    .container_comments_main {
+        height: 85%;
+        width: 92.6%;
+    }
+
+    .post_contain {
+        font-size: 17px;
+    }
+
+    .comment_contain {
+        width: 95%;
+    }
+
+    .input_to_comment {
+        width: 86%;
+    }
+
+    .container_image_profile_user,
+    .comment_image_container {
+        width: 35px;
+        height: 35px;
+    }
+
+    .send_comment {
+        width: min-content;
+        height: 60%;
+    }
+
+    .content_post_C {
+        width: 87%;
+        height: 5%;
+    }
+}
+
+
+/* pc */
+@media only screen and (min-width: 920px) {
+
+    .modal_comment_content {
+        width: 59%;
+        height: 75%;
+    }
+
+    .content_post_C {
+        width: 87%;
+        height: 7%;
+    }
+
+    .container_comments_main {
+        height: 80%;
+        width: 92.4%;
+    }
+
+    .post_contain {
+        font-size: 18px;
+    }
+
+    .comment_contain {
+
+        width: 95%;
+    }
+
+    .input_to_comment {
+        width: 86%;
+    }
+
+    .container_image_profile_user,
+    .comment_image_container {
+        width: 35px;
+        height: 35px;
+    }
+
+    .send_comment {
+        width: min-content;
+        height: 60%;
+    }
+}

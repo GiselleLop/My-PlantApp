@@ -1,19 +1,20 @@
+process.env.NO_COLOR = 'true';
 import homePage from '../src/pages/Home/index.js';
 import loginPage from './pages/Login/index.js';
+import { postPage } from './pages/Post/index.js';
 import registerPage from './pages/Register/index.js';
-import { posts } from './post.js';
 
 const routes = [
   { path: '/', component: homePage },
   { path: '/login', component: loginPage },
   { path: '/register', component: registerPage },
-  { path: '/posts', component: posts },
+  { path: '/posts', component: postPage },
 ];
 
-const mainPage = document.querySelector('.homepage');
+const mainPage = document.querySelector('.root');
 const defaultRoute = '/';
 
-function navigateTo(hash) {
+export function navigateTo(hash) {
   const route = routes.find((r) => r.path === hash);
 
   if (route && route.component) {

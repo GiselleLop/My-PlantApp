@@ -9,6 +9,7 @@
     "firebase",
     "jest"
   ],
+  "type": "module",
   "license": "MIT",
   "scripts": {
     "htmlhint": "htmlhint dist/*.html ",
@@ -46,7 +47,12 @@
     "commit": "d257c41694344460623eb1f1bb2a690bdfe33f83"
   },
   "dependencies": {
-    "firebase": "^10.5.0"
+    "dayjs": "^1.11.13",
+    "firebase": "^10.5.0",
+    "google-drive-api": "^1.0.0",
+    "googleapis": "^144.0.0",
+    "notiflix": "^3.2.8",
+    "readline-sync": "^1.4.10"
   },
   "jest": {
     "testEnvironment": "jsdom",

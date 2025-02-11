@@ -1,0 +1,211 @@
+.ListGroupItem {
+    border: solid #00000062 1.5px;
+    background-color: #ffffffe5;
+    border-radius: 0.5em;
+    width: 85%;
+    /* gap: 1px; */
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    padding: 10px 0;
+    align-items: center;
+}
+
+.postDescription {
+    padding: 0 1%;
+    width: 95%;
+    font-size: 15px;
+    border-radius: 0.2em;
+    word-wrap: break-word;
+    font-family: "Hammersmith One", serif;
+}
+
+.header_post {
+    display: flex;
+    padding: 7px 0;
+    width: 95%;
+    justify-content: space-between;
+
+}
+
+.post_info_container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.profile_image_container {
+    background-color: #838282;
+    width: 25px;
+    height: 25px;
+    border-radius: 20px;
+}
+
+.profile_image {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+/* .post_button_container {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+} */
+
+/* 
+.name_date_container {
+    display: flex;
+    flex-direction: column;
+    gap: 2px
+} */
+
+.post-contain {
+    width: 100%;
+    /* padding: 5px 0; */
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    place-content: center;
+    gap: 5px;
+}
+
+.container_likes_comments {
+    width: 95%;
+    padding: 5px 0;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+}
+
+.container_first {
+    height: 35px;
+    /* width: 95%; */
+    display: flex;
+    place-content: left;
+    align-items: center;
+    gap: 5px;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-bottom: 1.5%;
+}
+
+/* Estilo inicial del botón de "like" */
+.button_first {
+    display: flex;
+    place-content: center;
+    align-items: center;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    border-style: none;
+    /* border-radius: 40px; */
+    /* margin-left: 3%; */
+    transition: transform 0.1s ease;
+}
+
+.button_first:hover {
+    transform: rotate(5deg) scale(1.1);
+    /* background-color: #92695f; */
+
+}
+
+.imgLike,
+.imgChat {
+    width: auto;
+    height: 75%;
+}
+
+/* #likedButtonAndPostByUSer {
+    background-color: #92695f;
+} */
+
+.imgPostPublication {
+    width: 95%;
+    /* height: 465px; */
+    align-self: center;
+}
+
+.userName_post {
+    font-family: 'Font2';
+    font-size: 12px;
+}
+
+.date_post {
+    font-family: 'Font2';
+    color: #686868;
+    font-size: 10px;
+}
+
+#menu-btn {
+    background-color: transparent;
+    border: none;
+    border-radius: 30px;
+    width: 25px;
+    height: 25px;
+    transition: background-color 0.3s;
+}
+
+#menu-btn:hover {
+    background-color: #677E62;
+    color: white;
+}
+
+.menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.menu {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: white;
+    border: 1px solid #b8b8b8;
+    width: 100px;
+}
+
+.menu.active {
+    display: block;
+}
+
+.menu button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    background: white;
+    text-align: left;
+    cursor: pointer;
+}
+
+.menu button:hover {
+    background: #f0f0f0;
+}
+
+/* tablet */
+@media only screen and (min-width: 600px) and (max-width: 919px) {
+    .userName_post {
+        font-size: 14px;
+    }
+
+    .postDescription {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 920px) {
+    .ListGroupItem {
+        width: 60%;
+    }
+
+    .userName_post {
+        font-size: 14px;
+    }
+
+    .postDescription {
+        font-size: 15px;
+    }
+}

@@ -1,0 +1,143 @@
+.mainModal {
+    /* display: none; */
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black w/ opacity */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Modal Content/Box */
+.modal_content {
+    background-color: #D9D9D9;
+    border-radius: 15px;
+    width: 80%;
+    height: 50%;
+    /* margin: 4% auto; */
+    padding: 30px 10px;
+    font-size: 25px;
+    letter-spacing: 1px;
+    color: rgb(0, 0, 0);
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* gap: 19px; */
+}
+
+.header_modal {
+    display: flex;
+    width: 92%;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.cancel_button {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    font-family: 'Font2', sans-serif;
+    /* height: min-content; */
+}
+
+.container_modal_buttons {
+    display: flex;
+    width: 92%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    gap: 20px;
+}
+
+.editPublic {
+    font-size: 20px;
+    font-weight: 100;
+    font-family: "Konkhmer Sleokchher", serif;
+}
+
+.editContentTextarea {
+    border-radius: 5px;
+    border-style: none;
+    padding: 1%;
+    width: 90%;
+    height: 70%;
+    font-size: 15px;
+    margin: 13px 0 20px 0;
+    font-family: "Hammersmith One", serif;
+}
+
+
+.saveEditButton,
+.cancelEditButton {
+    font-size: 17px;
+    border-radius: 5px;
+    border: none;
+    width: 130px;
+    align-self: center;
+    color: white;
+    font-family: "Konkhmer Sleokchher", serif;
+}
+
+.saveEditButton {
+    background: #677E62;
+}
+
+.cancelEditButton {
+    background: #9C5050;
+}
+
+.saveEditButton:hover,
+.cancelEditButton:hover,
+.cancel_button:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.error_message_modal {
+    width: 92%;
+    color: #9C5050;
+    font-family: "Hammersmith One", serif;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+/* Estilos para tablets (pantallas entre 600px y 919px) */
+@media only screen and (min-width: 600px) and (max-width: 919px) {
+
+    /* Modal Content/Box */
+    .modal_content {
+        width: 70%;
+        height: 50%;
+    }
+
+    .editPublic {
+        font-size: 22px;
+    }
+}
+
+/* pc */
+@media only screen and (min-width: 920px) {
+    .modal_content {
+        width: 50%;
+        height: 65%;
+    }
+
+    .editPublic {
+        font-size: 22px;
+    }
+}

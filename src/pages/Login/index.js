@@ -5,14 +5,17 @@ function loginPage(navigateTo) {
   const mainPage = document.createElement('div');
   mainPage.classList.add('homepageLogin');
   mainPage.innerHTML = `
-    
-      <div class="imageAndTextRegister">
-        <h1 class="titleLogin">We are glad to see you again!</h1>
-        <h2 class="titleLogin">Enter your details</h2>
-        <img src="https://firebasestorage.googleapis.com/v0/b/social-network-c61c9.appspot.com/o/img%2Fregadera.png?alt=media&token=b6994595-5975-4a79-a110-686525ba4d5f" style="width: 55%; height: auto;">
+    <button class="back_button">
+        <img src="../../assets/images/back.png" width=60% height=auto/>
+      </button>
+
+      <div class="imageAndTextlogin">
+        <p>We are glad to see you again!</p>
+        <p>Enter your details</p>
+        <img src="https://firebasestorage.googleapis.com/v0/b/social-network-c61c9.appspot.com/o/img%2Fregadera.png?alt=media&token=b6994595-5975-4a79-a110-686525ba4d5f" class="image_login1_">
       </div>
 
-      <form id="input-container">
+      <form id="input-login-container">
         <div>
           <label for="email">Email:</label>
           <input type="email" id="email" name="email">
@@ -27,12 +30,11 @@ function loginPage(navigateTo) {
         <button id="log-in-button">Log In</button>
     
         <button id="google">
-        <img src="https://firebasestorage.googleapis.com/v0/b/social-network-c61c9.appspot.com/o/img%2Fgoogleongpng.webp?alt=media&token=0bf583ce-00aa-467b-9101-654e9fe9aabd" class="imgGoogle">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="64 64 896 896" focusable="false" class="anticon anticon-google" fill="currentColor" aria-hidden="true" width="25px" height="25px">
+          <path d="M878.1 472.9H841V472H512v80h208.1C699 639.9 612.3 704 512 704c-130.1 0-236-105.9-236-236s105.9-236 236-236c60.2 0 114.8 22.3 156.8 58.9l59.6-59.6C652.5 182.7 584.6 152 512 152 324.3 152 176 300.3 176 488s148.3 336 336 336c181.7 0 324-147.4 324-328 0-21.7-2.4-42.8-6.9-63.1z"/>
+        </svg>
         Log In with Google
         </button>
-
-        <button id="return">Return</button>
-
       </form>
   `;
 
@@ -66,7 +68,7 @@ function loginPage(navigateTo) {
     GoogleRegister(navigateTo);
   });
 
-  mainPage.querySelector('#return').addEventListener('click', () => {
+  mainPage.querySelector('.back_button').addEventListener('click', () => {
     navigateTo('/');
   });
 

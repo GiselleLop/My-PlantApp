@@ -5,15 +5,16 @@ function registerPage(navigateTo) {
   const mainPage = document.createElement('div');
   mainPage.classList.add('homePageRegister');
   mainPage.innerHTML = `
-  
+      <button class="back_button">
+        <img src="../../assets/images/back.png" width=60% height=auto/>
+      </button>
 
       <div class="imageAndTextRegister">
-        <h2>To create a new account, enter your details.</h2>
-        <img src="https://firebasestorage.googleapis.com/v0/b/social-network-c61c9.appspot.com/o/img%2Fevolucion.png?alt=media&token=2169c4ff-1063-488c-818a-e86c115b9b36" style="width: 55%; height: auto;">
+        <p>To create a new account, enter your details.</p>
+        <img src="https://firebasestorage.googleapis.com/v0/b/social-network-c61c9.appspot.com/o/img%2Fevolucion.png?alt=media&token=2169c4ff-1063-488c-818a-e86c115b9b36" class="image_register_">
       </div>
      
       <form id="input-container">
-      
         <div>
           <label for="usernameRegister">Username:</label>
           <input type="text" id="usernameRegister" name="username" autocomplete="username">
@@ -33,15 +34,25 @@ function registerPage(navigateTo) {
         <button id="signUp"> Sign up </button>
     
         <button id="google">
-        <img src="https://firebasestorage.googleapis.com/v0/b/social-network-c61c9.appspot.com/o/img%2Fgoogleongpng.webp?alt=media&token=0bf583ce-00aa-467b-9101-654e9fe9aabd" class="imgGoogle">
-        Sign up with Google
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="64 64 896 896" focusable="false" class="anticon anticon-google" fill="currentColor" aria-hidden="true" width="25px" height="25px">
+    <path d="M878.1 472.9H841V472H512v80h208.1C699 639.9 612.3 704 512 704c-130.1 0-236-105.9-236-236s105.9-236 236-236c60.2 0 114.8 22.3 156.8 58.9l59.6-59.6C652.5 182.7 584.6 152 512 152 324.3 152 176 300.3 176 488s148.3 336 336 336c181.7 0 324-147.4 324-328 0-21.7-2.4-42.8-6.9-63.1z"/>
+  </svg>
+             Sign up with Google
         </button>
-
-        <button id="return">Return</button>
 
       </form>
   `;
-  mainPage.querySelector('#return').addEventListener('click', () => {
+//   const googleButton = document.getElementById('google');
+
+// // Crea el ícono como un elemento DOM
+// const googleIcon = document.createElement('span');
+// googleIcon.className = 'anticon anticon-google'; // Clases que usa Ant Design
+// googleIcon.innerHTML = GoogleOutlined.render().props.children;
+
+// // Inserta el ícono antes de la imagen en el botón
+// googleButton.innerHTML(googleIcon, googleButton.firstChild);
+
+  mainPage.querySelector('.back_button').addEventListener('click', () => {
     navigateTo('/');
   });
 
@@ -51,7 +62,7 @@ function registerPage(navigateTo) {
     const signPassword = document.querySelector('#passwordRegister').value;
     const signUsername = document.querySelector('#usernameRegister').value;
 
-    createUser(signUpEmail, signPassword)
+    createUser(signUpEmail, signPassword, signUsername)
       .then((ok) => {
         const spanPassword = document.querySelector('#answerPass');
         spanPassword.classList.add(ok.message);
@@ -61,8 +72,8 @@ function registerPage(navigateTo) {
       .catch((err) => {
         const spanPassword = document.querySelector('#answerPass');
         spanPassword.classList.add('error');
-        if (err.code === 'auth/invalid-email') {
-          spanPassword.textContent = 'Ingresa un email válido';
+        if (err.code === 'auth/invalid-email' || err === 'auth/invalid-username') {
+          spanPassword.textContent = 'Ingresa un email o nombre de usuario válido';
         }
         if (err.code === 'auth/missing-email') {
           spanPassword.textContent = 'Por favor ingresa un email';

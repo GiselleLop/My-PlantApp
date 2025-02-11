@@ -1,35 +1,33 @@
 /* mobile first */
-.homePageWelcome {
-    align-items: center;
+.mainHomeContainer {
     width: 100%;
     height: 100%;
     align-items: center;
     display: flex;
     flex-direction: column;
     place-content: center;
-
+    gap: 10px
 }
 
-.mainContainer {
+.welcome_container {
     align-items: center;
     display: flex;
     flex-direction: column;
     place-content: center;
     text-align: center;
     width: 90%;
-    font-weight: bolder;
+    gap: 20px
 }
 
-.homeplant {
+.home_image {
     display: flex;
     transition: transform 0.3s;
+    width: 40%;
 }
 
-.homeplant:hover {
+.home_image:hover {
     transform: rotate(10deg);
 }
-
-
 
 .homeWelcomeAndText {
     align-items: center;
@@ -41,17 +39,19 @@
 }
 
 .homeSubtitle {
-    font-size: 40px;
+    font-size: 25px;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
 }
 
 .homeTitle {
     font-family: 'Font2', sans-serif;
-    font-size: 300%;
+    font-size: 30px;
     text-align: center;
-
+    color: #6F584B;
 }
 
-.orderbuttons {
+.buttons_container {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -60,31 +60,28 @@
     gap: 15px;
 }
 
-.registerButton,
-.loginButton {
-    letter-spacing: 2px;
+.home_button {
+    /* letter-spacing: 2px; */
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #D09080;
-    color: #57403A;
-    text-decoration: none;
+    padding: 6px 25px;
+    background-color: #FFFFFF;
+    color: #6F584B;
+    /* text-decoration: none; */
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     /* Espacio entre los botones */
     cursor: pointer;
     transition: background-color 0.3s;
     justify-content: space-around;
     height: auto;
     width: auto;
-    font-weight: bolder;
-    font-size: 80%;
+    font-size: 90%;
     font-family: 'Font2', sans-serif;
 }
 
-.registerButton:hover,
-.loginButton:hover {
-    background-color: #57403A;
-    color: #D09080;
+.home_button:hover {
+    background-color: #6F584B;
+    color: #FFFFFF;
 }
 
 /* .wordsHome {
@@ -93,23 +90,49 @@
 
 } */
 
+/* Estilos para celulares (pantallas menores a 600px) */
+@media only screen and (min-width: 361px) and (max-width: 599px) {}
+
+/* Estilos para tablets (pantallas entre 600px y 919px) */
+@media only screen and (min-width: 600px) and (max-width: 919px) {
+    .home_image {
+        width: 20%;
+    }
+
+    .homeTitle {
+        font-size: 40px;
+    }
+
+
+    .homeSubtitle {
+        font-size: 35px;
+    }
+}
+
 /* computer */
 @media only screen and (min-width: 920px) {
-    .homePageWelcome {
+    .mainHomeContainer {
         flex-direction: row;
         gap: 1%;
     }
 
-    .mainContainer {
-        width: 60%;
+    .welcome_container {
+        width: 50%;
         gap: 30px;
     }
 
-    .homeplant {
-        width: 25%;
+    .home_image {
+        width: 20%;
     }
 
     .homeTitle {
         font-size: 50px;
     }
+
+
+    .homeSubtitle {
+        font-size: 35px;
+    }
+
+
 }
