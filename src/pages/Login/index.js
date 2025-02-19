@@ -1,12 +1,13 @@
 import "./Login.css"
+import backImage from "../../assets/images/back.png";
 import { GoogleRegister, login } from "../../firebase";
-
+// ../../assets/images/back.png
 function loginPage(navigateTo) {
   const mainPage = document.createElement('div');
   mainPage.classList.add('homepageLogin');
   mainPage.innerHTML = `
     <button class="back_button">
-        <img src="../../assets/images/back.png" width=60% height=auto/>
+        <img src="${backImage}" width=60% height=auto/>
       </button>
 
       <div class="imageAndTextlogin">
