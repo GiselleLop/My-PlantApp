@@ -18,14 +18,14 @@ export default defineConfig(({ command, mode }) => {
   if (command === 'build') {
     return {
       ...commonConfig,
-      root: 'src',
+      root: './',
       build: {
         minify: false,
         rollupOptions: {
           output: {
             dir: './dist',
           },
-          input: './src/index.html',
+          input: 'index.html',
         },
       },
     };
@@ -34,7 +34,7 @@ export default defineConfig(({ command, mode }) => {
   // Configuración para desarrollo
   return {
     ...commonConfig,
-    root: 'src',
+    root: './',
     server: {
       cors: true,
       historyApiFallback: true,
