@@ -4,10 +4,15 @@ import { renderModalConfirm } from "../../../components/ModalConfirm"
 import "./PostContainer.css"
 import { renderCommentModal } from "../CommentModal";
 
+import userImage1 from "../../../../assets/images/user.png";
+import heartImage from "../../../../assets/images/heart.png"
+import heartFullImage from "../../../../assets/images/heartfull.png"
+import chatImage from  "../../../../assets/images/chat.png"
+
 export async function renderPostCard(postData) {
   const userId = auth.currentUser;    
   const userData = await getUserData(postData.userId)
-  const imageProfile =  userData.profile_image &&  userData.profile_image  !== "" ?  userData.profile_image  : '../../../assets/images/user.png';
+  const imageProfile =  userData.profile_image &&  userData.profile_image  !== "" ?  userData.profile_image  : userImage1;
 
   const postCard = document.createElement('div');
   postCard.classList.add('ListGroupItem');
@@ -47,14 +52,14 @@ export async function renderPostCard(postData) {
     <div class="container_likes_comments">
     <div class="container_first"">
       <button class="button_first" id="button_like_first">
-        <img src="../../../assets/images/heart.png" class='imgLike' id='likeButton'>
+        <img src=".${heartImage}" class='imgLike' id='likeButton'>
       </button>
       <span>${postData.likes}</span>
     </div>
 
     <div class="container_first">
       <button class="button_first" id="button_commemt_first">
-        <img src="../../../assets/images/chat.png" class='imgChat' id='commentChat'>
+        <img src="${chatImage}" class='imgChat' id='commentChat'>
       </button>
       <span>${postData.comments ? postData.comments.length : 0}</span>
     </div>
@@ -65,7 +70,7 @@ export async function renderPostCard(postData) {
   if (likedBy && likedBy.includes(userId.uid)) {
     const likeButton = postCard.querySelector('.imgLike');
     if (likeButton) {
-      likeButton.src = '../../../assets/images/heartfull.png';
+      likeButton.src = heartFullImage;
     }
   }
 

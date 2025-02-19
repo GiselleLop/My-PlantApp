@@ -2,10 +2,12 @@ import { doc, onSnapshot } from "firebase/firestore";
 import { auth, firestore, getRelativeTime, getUserData, handleComment } from "../../../../firebase";
 import "./CommentModal.css"
 import Notiflix from "notiflix"; 
+import userImage1 from "../../../../assets/images/user.png";
+import messageImg from "../../../../assets/images/message.png"
 
 export async function renderCommentModal(postData, username) {
   const userId = auth.currentUser;   
-  let imageProfile = userId.photoURL ? userId.photoURL : '../../assets/images/user.png';
+  let imageProfile = userId.photoURL ? userId.photoURL : userImage1;
 
   const mainModal = document.createElement('div');
   mainModal.classList.add("mainCommentModal");
@@ -30,7 +32,7 @@ export async function renderCommentModal(postData, username) {
             <input type="text" class="input_to_comment">
 
             <button class="send_comment">
-              <img src="../../../assets/images/message.png" class="image_button_comment">    
+              <img src="${messageImg}" class="image_button_comment">    
             </button>
           </div>
         </div>

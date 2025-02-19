@@ -1,12 +1,12 @@
 import { createUser, GoogleRegister } from '../../firebase.js';
 import "./Register.css"
-
+import backImage from "../../assets/images/back.png";
 function registerPage(navigateTo) {
   const mainPage = document.createElement('div');
   mainPage.classList.add('homePageRegister');
   mainPage.innerHTML = `
     <button class="back_button">
-      <img src="../../assets/images/back.png" width=60% height=auto/>
+      <img src="${backImage}" width=60% height=auto/>
     </button>
 
     <div class="imageAndTextRegister">

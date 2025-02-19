@@ -1,7 +1,7 @@
 import "./Login.css"
 import backImage from "../../assets/images/back.png";
 import { GoogleRegister, login } from "../../firebase";
-// ../../assets/images/back.png
+
 function loginPage(navigateTo) {
   const mainPage = document.createElement('div');
   mainPage.classList.add('homepageLogin');

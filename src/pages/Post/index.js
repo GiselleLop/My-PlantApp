@@ -8,6 +8,10 @@ import { renderLogOutModal } from '../components/LogOutModal/index.js';
 import { renderEditProfileModal } from './components/EditProfileModal/index.js';
 import { renderPostCard } from './components/PostContainer/index.js';
 import "./Post.css"
+import exitImage from "../../assets/images/exit.png";
+import userImage from "../../assets/images/user.png";
+import editImage from "../../assets/images/edit.png";
+import cameraImage from "../../assets/images/camera.png"
 
 export function postPage() {
   const mainPage = document.createElement('div');
@@ -20,14 +24,14 @@ export function postPage() {
     const userData = await getUserData(userId.uid)
  
     let displayName = userId ? userData?.username?.split(' ')[0] : 'Unknown user';
-    const imageProfile = userId.photoURL && userId.photoURL !== "" ? userId.photoURL : '../../assets/images/user.png';
+    const imageProfile = userId.photoURL && userId.photoURL !== "" ? userId.photoURL : userImage;
    
     mainPage.innerHTML = `
       <div class="headerPost">
         <p class="header_title">My PlantApp</p>
         <img src="https://firebasestorage.googleapis.com/v0/b/social-network-c61c9.appspot.com/o/img%2Fplanta-arana.png?alt=media&token=836eab90-f526-44b6-b147-076dfff7cd62" class="logoImage" alt="Plantapp logo">
         <button class="logOutButton">
-          <img src="../../assets/images/exit.png" alt="Log out">
+          <img src="${exitImage}" alt="Log out">
         </button>
       </div>
       
@@ -39,7 +43,7 @@ export function postPage() {
             
           <div>
             <p class='username'>${displayName}
-              <img src="../../assets/images/edit.png" class="edit_button_profile"/>
+              <img src="${editImage}" class="edit_button_profile"/>
             </p>
             <p class='email'>${userId.email}</p>
           </div>      
@@ -51,7 +55,7 @@ export function postPage() {
             <div class='image_and_post_container'>
               <span id="file-name">No hay imagen seleccionada</span> 
               <label for="post-image" class="camera-icon">
-                <img src="../../assets/images/camera.png" alt="Cámara" />
+                <img src="${cameraImage}" alt="Cámara" />
                 <input type="file" id="post-image" accept="image/*">
               </label>
               <button class="buttonSave">
