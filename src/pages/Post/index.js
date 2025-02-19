@@ -5,6 +5,7 @@ import {
   getUserData,
 } from '../../firebase.js';
 import { renderLogOutModal } from '../components/LogOutModal/index.js';
+import { renderEditProfileModal } from './components/EditProfileModal/index.js';
 import { renderPostCard } from './components/PostContainer/index.js';
 import "./Post.css"
 
@@ -14,11 +15,13 @@ export function postPage() {
   
   async function renderPost(postList) {
     const userId = auth.currentUser;
+    console.log(auth.currentUser);
+    
     const userData = await getUserData(userId.uid)
  
     let displayName = userId ? userData?.username?.split(' ')[0] : 'Unknown user';
-    let imageProfile = userId.photoURL ? userId.photoURL : '../../assets/images/user.png';
-  
+    const imageProfile = userId.photoURL && userId.photoURL !== "" ? userId.photoURL : '../../assets/images/user.png';
+   
     mainPage.innerHTML = `
       <div class="headerPost">
         <p class="header_title">My PlantApp</p>
@@ -31,14 +34,15 @@ export function postPage() {
       <div class="containerPublication">
         <div class='pictureAndUsername'>
           <div class ="container_image">
-            <img src=${imageProfile} class="imagePublication" alt="Profile image">
+            <img src="${imageProfile}" class="imagePublication" alt="Profile image">
           </div>
             
           <div>
-            <p class='username'>${displayName}</p>
+            <p class='username'>${displayName}
+              <img src="../../assets/images/edit.png" class="edit_button_profile"/>
+            </p>
             <p class='email'>${userId.email}</p>
           </div>      
-           <!--  <button class='editProfileButton'>Edit profile</button> -->
         </div>
           
         <form id="task-form">
@@ -69,31 +73,6 @@ export function postPage() {
         const postCard = await renderPostCard(doc)
         mainPage.querySelector('.postView').appendChild(postCard);
       });
-  
-      // const modal = document.getElementById('myModal');
-      // const span = document.getElementsByClassName('close')[0];
-      // const textModal = document.querySelector('.textOfModal');
-      // const modalContent = document.querySelector('.modal-content');
-  
-      const contentModalEditProfile = document.createElement('div');
-      contentModalEditProfile.classList = 'contentEditForm';
-      contentModalEditProfile.innerHTML = `
-      <h1 class='TitleEditProfile'> Edit Profile </h1>
-      <form id="profileForm">
-        <div>
-          <label for="profileUserName">Change username:</label>
-          <input type="text" id="profileUserName" placeholder="Username" value="${displayName}">
-        </div>
-  
-        <div>
-          <label for="profileImage">Change profile photo:</label>
-          <input type="file" id="profileImage" accept="image/*">
-        </div>
-  
-        <button type="submit" class="saveEditProfileButton">Save Info</button>
-      </form>
-     
-      `;
         
       const imageInput = mainPage.querySelector('#post-image');
       imageInput.addEventListener("change", function (event) {
@@ -128,30 +107,9 @@ export function postPage() {
       });
   
       // edit profile
-      // mainPage.querySelector('.editProfileButton').addEventListener('click', (e) => {
-      //   e.preventDefault();
-      //   modal.style.display = 'block';
-      //   textModal.style.display = 'none';
-      //   modalContent.append(contentModalEditProfile);
-      //   const saveProfile = document.querySelector('.saveEditProfileButton');
-  
-      //   saveProfile.addEventListener('click', (f) => {
-      //     f.preventDefault();
-      //     modal.style.display = 'none';
-      //     const fileInput = document.getElementById('profileImage');
-      //     const file = fileInput.files[0] ? fileInput.files[0] : imageProfile;
-      //     const nameuser = document.querySelector('#profileUserName').value;
-      //     editUserProfile(nameuser, file);
-      //   });
-      //   span.onclick = function () {
-      //     modal.style.display = 'none';
-      //   };
-      //   window.onclick = function (event) {
-      //     if (event.target === modal) {
-      //       modal.style.display = 'none';
-      //     }
-      //   };
-      // });
+      mainPage.querySelector('.edit_button_profile').addEventListener('click', (e) => {
+        renderEditProfileModal()
+      })
   
       // evento cerrar sesion
       mainPage.querySelector('.logOutButton').addEventListener('click', () => {

@@ -17,7 +17,7 @@ export async function renderCommentModal(postData, username) {
         </div>
 
         <div class="content_post_C"> 
-          <p class="post_contain">${postData.data().description}</p>
+          <p class="post_contain">${postData.description}</p>
         </div>
 
         <div class="container_comments_main">
@@ -85,8 +85,11 @@ export async function renderCommentModal(postData, username) {
     });
     sendCommentButton.addEventListener("click", () => {
       if (inputComment.value.trim() === '') {
-        inputComment.classList.add("error-border"); 
-        return
+        inputComment.classList.add('fadeOut');
+        setTimeout(() => {
+          inputComment.classList.remove('fadeOut');
+        }, 1000);
+        return;
       } else {
         handleComment(postData.id, userId.uid, inputComment.value.trim())
         .then(() => {
@@ -99,11 +102,7 @@ export async function renderCommentModal(postData, username) {
       }
     });
   
-    inputComment.addEventListener("input", () => {
-      if (inputComment.value.trim() !== '') {
-        inputComment.classList.remove("error-border");
-      }
-    });
+    
   }
   
   mainModal.addEventListener("click", (event) => {

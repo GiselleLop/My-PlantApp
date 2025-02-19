@@ -116,12 +116,6 @@
     padding: 0 5px;
 }
 
-.error-border {
-    border: 1px solid rgb(122, 44, 44);
-    background-color: #ffe9e9;
-    /* border: none; */
-}
-
 .send_comment {
     display: flex;
     align-items: center;

@@ -10,8 +10,7 @@ import {
   onSnapshot,
   query,
   orderBy,
-  arrayUnion, 
-  serverTimestamp 
+  arrayUnion,  
 } from 'firebase/firestore';
 import {
   getAuth,
@@ -22,12 +21,8 @@ import {
   signOut,
   onAuthStateChanged,
   updateProfile,
-  
 } from 'firebase/auth';
 import {
-  ref,
-  uploadBytes,
-  getDownloadURL,
   getStorage,
 } from 'firebase/storage';
 import { initializeApp } from 'firebase/app';
@@ -62,7 +57,7 @@ export {
 };
 
 // Para crear o registrar usuarios
-export function createUser(email, password, username) {
+export async function createUser(email, password, username) {
   return new Promise((resolve, reject) => {
     // Validar si el username está vacío
     if (!username || username.trim() === "") {
@@ -71,10 +66,14 @@ export function createUser(email, password, username) {
     }
 
     createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+      .then(async (userCredential) => {
         const user = userCredential.user;
+        await updateProfile(user, {
+          displayName: username.trim(),
+        });
+
         setDoc(doc(db, "user", user.uid), {
-          username: username.trim(), // Elimina espacios en blanco
+          username: username.trim(),
           email: email,
           createdAt: new Date(),
           profile_image: null
@@ -131,7 +130,7 @@ export async function  GoogleRegister(navigateTo) {
     .then((result) => {
       const user = result.user;
       setDoc(doc(db, "user", user.uid), {
-        username: user.displayName, // Nombre desde la cuenta de Google
+        username: user.displayName,
         email: user.email,
         createdAt: new Date(),
         profile_image: user.photoURL
@@ -237,12 +236,16 @@ export function initializeAuth(setupPost) {
           orderBy("created_at", "desc")  
         );        
         onSnapshot(userPostsCollection, (snapshot) => {
-          const newPostList = [];
-          snapshot.forEach((post) => {
-            newPostList.push(post);
-          });
-          resolve(setupPost(newPostList));
-        });
+          const newPostList = snapshot.docs
+            .map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+              created_at: doc.data().created_at?.toDate() || new Date(),
+            }))
+            .sort((a, b) => b.created_at - a.created_at); 
+          setupPost(newPostList);
+          resolve();
+        }, reject);
       } else {
         navigateTo('/');
       }
@@ -252,26 +255,25 @@ export function initializeAuth(setupPost) {
 
 // actualizar perfil
 export async function editUserProfile(userName, userPhotoProfile) {
-  const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
-  if (urlPattern.test(userPhotoProfile)) {
-    updateProfile(auth.currentUser, {
-      displayName: userName,
-      photoURL: userPhotoProfile,
-    });
-    return;
+  try {
+    const postRef = doc(firestore, 'user', auth.currentUser.uid);
+    const updateData = { username: userName };
+
+    if (userPhotoProfile) {
+      const imageUrl = await uploadImage(userPhotoProfile);
+      updateData.profile_image = imageUrl;
+      await updateProfile(auth.currentUser, { displayName: userName, photoURL: imageUrl });
+    } else {
+      await updateProfile(auth.currentUser, { displayName: userName });
+    }
+    await updateDoc(postRef, updateData);
+  } catch (error) {
+    throw error;
   }
-  const fileName = `${Date.now()}_${userPhotoProfile.name}`;
-  const storageRef = ref(storage, `/profilePhotos/${fileName}`);
-  const imageUrl = await uploadBytes(storageRef, userPhotoProfile)
-    .then(() => getDownloadURL(storageRef));
-  updateProfile(auth.currentUser, {
-    displayName: userName, photoURL: imageUrl,
-  });
 }
 
 export async function getUserData(userId) {
   try {
-    // Obtén el documento del usuario
     const userDocRef = doc(db, "user", userId);
     const userDoc = await getDoc(userDocRef);
 
@@ -288,9 +290,11 @@ export async function getUserData(userId) {
 }
 
 export const getRelativeTime = (createdAt) => {
-  if (!createdAt || !createdAt.seconds) return "Fecha inválida";
-  const date = new Date(createdAt.seconds * 1000); 
-  return dayjs(date).fromNow();
+  if (!createdAt) return "Unknown date";
+  if (createdAt.seconds) {
+    createdAt = new Date(createdAt.seconds * 1000);
+  }
+  return dayjs(createdAt).fromNow();
 };
 
 export async function uploadImage(file) {
@@ -305,7 +309,6 @@ export async function uploadImage(file) {
     });
 
     const data = await response.json();
-    console.log("Imagen subida con éxito:", data.secure_url);
     return data.secure_url; 
   } catch (error) {
     console.error("Error al subir la imagen:", error);

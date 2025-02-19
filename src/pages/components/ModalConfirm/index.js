@@ -1,4 +1,3 @@
-// import { editPost } from "../../../../firebase";
 import "./ModalConfirm.css"
 import Notiflix from "notiflix"; 
 

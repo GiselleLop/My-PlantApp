@@ -1,4 +1,3 @@
-// import { editPost } from "../../../../firebase";
 import { logOut } from "../../../firebase";
 import "./LogOutModal.css"
 import Notiflix from "notiflix"; 

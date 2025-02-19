@@ -6,22 +6,24 @@ import { renderCommentModal } from "../CommentModal";
 
 export async function renderPostCard(postData) {
   const userId = auth.currentUser;    
-  const userData = await getUserData(postData.data().userId)
+  const userData = await getUserData(postData.userId)
+  const imageProfile =  userData.profile_image &&  userData.profile_image  !== "" ?  userData.profile_image  : '../../../assets/images/user.png';
+
   const postCard = document.createElement('div');
   postCard.classList.add('ListGroupItem');
   postCard.innerHTML = `    
     <div class='header_post'> 
       <div class="post_info_container">
         <div class="profile_image_container">
-          <img src=${userData ? userData.profile_image : '../../../assets/images/user.png'} class="profile_image" />
+          <img src="${imageProfile}" class="profile_image" />
         </div>
         <div class="name_date_container">
           <p class="userName_post">${userData ? userData?.username?.split(' ')[0] : 'Unknown user'}</p>
-          <p class="date_post">${postData.data().created_at ? getRelativeTime(postData.data().created_at): 'Unknown date'}</p>
+          <p class="date_post">${postData.created_at ? getRelativeTime(postData.created_at): 'Unknown date'}</p>
         </div>
       </div>
       
-      ${postData.data().userId.includes(userId.uid)? `
+      ${postData.userId.includes(userId.uid)? `
         <div class="menu-container">
         <button id="menu-btn">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" fill="currentColor" width="25px" height="25px">
@@ -37,8 +39,8 @@ export async function renderPostCard(postData) {
     </div>
 
     <div class='post-contain'>
-      <p class='postDescription'>${postData.data().description}</p>
-      ${postData.data().image ? `<img src="${postData.data().image}" alt="Post image" class="imgPostPublication">` : ""} 
+      <p class='postDescription'>${postData.description}</p>
+      ${postData.image ? `<img src="${postData.image}" alt="Post image" class="imgPostPublication">` : ""} 
     </div>
 
 
@@ -47,21 +49,20 @@ export async function renderPostCard(postData) {
       <button class="button_first" id="button_like_first">
         <img src="../../../assets/images/heart.png" class='imgLike' id='likeButton'>
       </button>
-      <span>${postData.data().likes}</span>
+      <span>${postData.likes}</span>
     </div>
 
     <div class="container_first">
       <button class="button_first" id="button_commemt_first">
         <img src="../../../assets/images/chat.png" class='imgChat' id='commentChat'>
       </button>
-      <span>${postData.data().comments ? postData.data().comments.length : 0}</span>
+      <span>${postData.comments ? postData.comments.length : 0}</span>
     </div>
   </div>
   `;
   
-  const likedBy = postData.data().likedBy;
+  const likedBy = postData.likedBy;
   if (likedBy && likedBy.includes(userId.uid)) {
-    // El documento tiene la propiedad likedBy y el usuario ya ha dado like
     const likeButton = postCard.querySelector('.imgLike');
     if (likeButton) {
       likeButton.src = '../../../assets/images/heartfull.png';
@@ -82,7 +83,6 @@ export async function renderPostCard(postData) {
   });
    // Event Like
   postCard.querySelector('#button_like_first').addEventListener('click', (e) => {
-    //  e.preventDefault()
     handleLike(postData.id, userId.uid);
   });
   

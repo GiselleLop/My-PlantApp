@@ -12,8 +12,8 @@ export async function renderEditPostModal(postData) {
          <button class='cancel_button'>X</button>
       </div>
   
-      <textarea class="editContentTextarea" placeholder="Enter the content of the publication">${postData.data().description}</textarea>
-      <span class="error_message_modal"></span>
+      <textarea class="editContentTextarea" placeholder="Enter the content of the publication">${postData.description}</textarea>
+    
       <div class="container_modal_buttons">
          <button class="saveEditButton">Save</button>
          <button class="cancelEditButton">Cancel</button>
@@ -27,7 +27,7 @@ export async function renderEditPostModal(postData) {
   const cancelModalButton = document.querySelector(".cancelEditButton");
   const saveModalButton = document.querySelector(".saveEditButton");
   const textareaModal = document.querySelector(".editContentTextarea");
-  const errorModal = document.querySelector(".error_message_modal");
+ 
   if (closeModalButton, cancelModalButton, saveModalButton) {
     closeModalButton.addEventListener("click", () => {
       mainModal.remove();
@@ -36,8 +36,12 @@ export async function renderEditPostModal(postData) {
       mainModal.remove();
     });
     saveModalButton.addEventListener("click", () => {
-      if(textareaModal.value.trim() === ''){
-        errorModal.textContent ="Completa el campo"
+      if (textareaModal.value.trim() === '') {
+        textareaModal.classList.add('fadeOut');
+        setTimeout(() => {
+          textareaModal.classList.remove('fadeOut');
+        }, 1000);
+        return;
       } else {
         editPost(postData.id, textareaModal.value)
         .then(() => {
@@ -45,14 +49,8 @@ export async function renderEditPostModal(postData) {
           Notiflix.Notify.success("¡Guardado correctamente!");
         })
         .catch(() => {
-          errorModal.textContent ="Ocurrió un error, inténtelo de nuevo más tarde"
+          Notiflix.Notify.failure("Ocurrió un error, inténtelo de nuevo más tarde")
         })
-      }
-    });
-
-    textareaModal.addEventListener("input", () => {
-      if (errorModal.textContent !== "") {
-        errorModal.textContent = "";
       }
     });
   }
