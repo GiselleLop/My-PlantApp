@@ -1,4 +1,3 @@
-process.env.NO_COLOR = 'true';
 import homePage from '../src/pages/Home/index.js';
 import loginPage from './pages/Login/index.js';
 import { postPage } from './pages/Post/index.js';
