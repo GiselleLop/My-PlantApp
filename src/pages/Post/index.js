@@ -18,9 +18,7 @@ export function postPage() {
   mainPage.setAttribute('class', 'homepagePosts');
   
   async function renderPost(postList) {
-    const userId = auth.currentUser;
-    console.log(auth.currentUser);
-    
+    const userId = auth.currentUser;    
     const userData = await getUserData(userId.uid)
  
     let displayName = userId ? userData?.username?.split(' ')[0] : 'Unknown user';
