@@ -1,5 +1,5 @@
 
-# My Plantapp 
+# My PlantApp 
 
 ## Project summary:
 This project focuses on developing a social network designed for plant lovers. The application allows users to sign up and log in either manually or using their Google accounts.
