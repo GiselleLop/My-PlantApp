@@ -103,7 +103,8 @@ export function postPage() {
         }
         
         document.querySelector(".buttonSave").disabled = true;
-        document.querySelector(".post-text").textContent = "";
+        document.querySelector(".post-text").style.display = "none";
+
         document.getElementById("loading-spinner").classList.remove("hidden");
 
         saveTask(userId.uid, postDescription.value, imageInput.files[0]);

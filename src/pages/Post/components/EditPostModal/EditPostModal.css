@@ -28,7 +28,6 @@
     border-radius: 15px;
     width: 80%;
     height: 50%;
-    /* margin: 4% auto; */
     padding: 30px 10px;
     font-size: 25px;
     letter-spacing: 1px;
@@ -37,7 +36,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* gap: 19px; */
 }
 
 .header_modal {
@@ -52,7 +50,6 @@
     border: none;
     font-size: 20px;
     font-family: 'Font2', sans-serif;
-    /* height: min-content; */
 }
 
 .container_modal_buttons {
@@ -61,7 +58,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: end;
-    gap: 20px;
+    gap: 10px;
 }
 
 .editPublic {
@@ -84,14 +81,23 @@
 
 .saveEditButton,
 .cancelEditButton {
-    font-size: 17px;
     border-radius: 5px;
     border: none;
-    width: 130px;
-    align-self: center;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.save_text_b_EP,
+.cance_text_b_EP {
     color: white;
+    font-size: 15px;
     font-family: "Konkhmer Sleokchher", serif;
 }
+
 
 .saveEditButton {
     background: #677E62;
@@ -120,6 +126,21 @@
     .editPublic {
         font-size: 22px;
     }
+
+    .container_modal_buttons {
+        gap: 20px;
+    }
+
+    .saveEditButton,
+    .cancelEditButton {
+        width: 130px;
+        height: 30px;
+    }
+
+    .save_text_b_EP,
+    .cance_text_b_EP {
+        font-size: 17px;
+    }
 }
 
 /* pc */
@@ -131,5 +152,20 @@
 
     .editPublic {
         font-size: 22px;
+    }
+
+    .container_modal_buttons {
+        gap: 20px;
+    }
+
+    .saveEditButton,
+    .cancelEditButton {
+        width: 130px;
+        height: 30px;
+    }
+
+    .save_text_b_EP,
+    .cance_text_b_EP {
+        font-size: 17px;
     }
 }

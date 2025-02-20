@@ -15,8 +15,14 @@ export async function renderEditPostModal(postData) {
       <textarea class="editContentTextarea" placeholder="Enter the content of the publication">${postData.description}</textarea>
     
       <div class="container_modal_buttons">
-         <button class="saveEditButton">Save</button>
-         <button class="cancelEditButton">Cancel</button>
+         <button class="saveEditButton">
+            <p class="save_text_b_EP">Save<p>
+            <div id="loading-spinnerEP" class="spinner hidden"></div>
+         </button>
+         
+         <button class="cancelEditButton">
+            <p class="cance_text_b_EP">Cancel</p>
+         </button>
       </div>
    </div>
    `;
@@ -43,12 +49,27 @@ export async function renderEditPostModal(postData) {
         }, 1000);
         return;
       } else {
+
+        document.querySelector(".save_text_b_EP").style.display = "none";
+        saveModalButton.disabled = true;
+        saveModalButton.style.opacity = "0.5";
+
+        cancelModalButton.disabled = true
+        cancelModalButton.style.opacity = "0.5";
+        
+        document.getElementById("loading-spinnerEP").classList.remove("hidden");
+
         editPost(postData.id, textareaModal.value)
         .then(() => {
           mainModal.remove();
           Notiflix.Notify.success("¡Guardado correctamente!");
         })
         .catch(() => {
+          saveModalButton.disabled = false;
+          saveModalButton.style.opacity = "1";
+
+          cancelModalButton.disabled = false
+          cancelModalButton.style.opacity = "1";
           Notiflix.Notify.failure("Ocurrió un error, inténtelo de nuevo más tarde")
         })
       }

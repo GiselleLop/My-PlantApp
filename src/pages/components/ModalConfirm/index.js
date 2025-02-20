@@ -14,8 +14,13 @@ export async function renderModalConfirm(postId, title, description, handleConfi
         <p>${description}</p>
       </div>
       <div class="container_modal_buttons_confirm">
-         <button class="saveModalButton">Yes, continue</button>
-         <button class="cancelModalButton">Cancel</button>
+         <button class="saveModalButton">
+            <p class="continue_text_b_MC">Yes, continue<p>
+            <div id="loading-spinnerMC" class="spinner hidden"></div>
+         </button>
+        <button class="cancelModalButton">
+          <p class="cancel_text_b_MC">Cancel<p>      
+        </button>
       </div>
    </div>
    `;
@@ -34,12 +39,24 @@ export async function renderModalConfirm(postId, title, description, handleConfi
       mainModal.remove();
     });
     saveModalButton.addEventListener("click", () => {
+      
+      document.getElementById("loading-spinnerMC").classList.remove("hidden");
+      document.querySelector(".continue_text_b_MC").style.display = "none";
+      saveModalButton.disabled = true;
+      saveModalButton.style.opacity = "0.5";
+      cancelModalButton.disabled = true
+      cancelModalButton.style.opacity = "0.5";
+
         handleConfirm(postId)
         .then(() => {
           mainModal.remove();
           Notiflix.Notify.success("Operation performed correctly!");
         })
         .catch(() => {
+          saveModalButton.disabled = false;
+          saveModalButton.style.opacity = "1";
+          cancelModalButton.disabled = false
+          cancelModalButton.style.opacity = "1";
           Notiflix.Notify.success("An error occurred, please try again later")
         })
       

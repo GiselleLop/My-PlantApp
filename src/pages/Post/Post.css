@@ -215,12 +215,13 @@
 
 .buttonSave {
     border-radius: 0.4em;
-    width: auto;
+    width: 48px;
+    height: 22px;
     display: flex;
     align-items: center;
     justify-content: center;
     border: none;
-    padding: 4px 4%;
+    /* padding: 4px 4%; */
     transition: background-color 0.3s;
     background-color: #677E62;
     color: #FFFFFF;
@@ -361,11 +362,11 @@
     border: 3px solid rgba(255, 255, 255, 0.3);
     border-top: 3px solid white;
     border-radius: 50%;
-    width: 15px;
-    height: 15px;
+    width: 6px;
+    height: 6px;
     animation: spin 1s linear infinite;
     display: inline-block;
-    margin-left: 8px;
+    /* margin-left: 8px; */
 }
 
 @keyframes spin {
@@ -411,6 +412,7 @@
     .header_title {
         font-size: 30px;
     }
+
 }
 
 @media only screen and (min-width: 600px) and (max-width: 919px) {
@@ -451,6 +453,13 @@
     .buttonSave {
         padding: 2px 3%;
         font-size: 1.2em;
+        width: 70px;
+        height: 30px;
+    }
+
+    .spinner {
+        width: 10px;
+        height: 10px;
     }
 
     .camera-icon {
@@ -530,6 +539,8 @@
 
     .buttonSave {
         padding: 2px 3%;
+        width: 80px;
+        height: 25px;
         font-size: 1.2em;
     }
 
@@ -545,4 +556,11 @@
     #file-name {
         font-size: 19px;
     }
+
+    .spinner {
+        width: 10px;
+        height: 10px;
+    }
+
+
 }

@@ -26,7 +26,7 @@ export async function renderCommentModal(postData, username) {
           <div class="container_comments"></div>
           <div class="comment_user_container"> 
             <div class ="container_image_profile_user">
-              <img src=${imageProfile} class="user_profile_photo" alt="Profile image">
+              <img src=${imageProfile} class="user_profile_photo">
             </div>
 
             <input type="text" class="input_to_comment">
@@ -95,7 +95,7 @@ export async function renderCommentModal(postData, username) {
       } else {
         handleComment(postData.id, userId.uid, inputComment.value.trim())
         .then(() => {
-          inputComment.textContent = ''
+          inputComment.value = ''
           Notiflix.Notify.success("¡Guardado correctamente!");
         })
         .catch((error) => {

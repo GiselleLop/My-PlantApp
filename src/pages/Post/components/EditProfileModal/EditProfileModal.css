@@ -79,22 +79,31 @@
 
 .container_modal_buttons_profile {
     display: flex;
-    width: 92%;
+    width: 100%;
+    /* width: 92%; */
     flex-direction: row;
     align-items: center;
     justify-content: end;
-    gap: 20px;
+    gap: 10px;
     margin-top: 20px;
 }
 
 .saveEditPButton,
 .cancelEditPButton {
-    font-size: 17px;
     border-radius: 5px;
     border: none;
-    width: 130px;
-    align-self: center;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.save_text_b,
+.cance_text_b {
     color: white;
+    font-size: 15px;
     font-family: "Konkhmer Sleokchher", serif;
 }
 
@@ -124,6 +133,22 @@
     .editProfileTitle {
         font-size: 22px;
     }
+
+    .container_modal_buttons_profile {
+        gap: 20px;
+    }
+
+    .saveEditPButton,
+    .cancelEditPButton {
+        width: 130px;
+        height: 30px;
+    }
+
+    .save_text_b,
+    .cance_text_b {
+
+        font-size: 17px;
+    }
 }
 
 /* pc */
@@ -134,5 +159,20 @@
 
     .editProfileTitle {
         font-size: 22px;
+    }
+
+    .saveEditPButton,
+    .cancelEditPButton {
+        width: 130px;
+        height: 30px;
+    }
+
+    .save_text_b,
+    .cance_text_b {
+        font-size: 17px;
+    }
+
+    .container_modal_buttons_profile {
+        gap: 20px;
     }
 }

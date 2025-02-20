@@ -24,8 +24,13 @@ export async function renderEditProfileModal() {
                 <input type="file" id="profileImageEdit" accept="image/*">
             </div>
             <div class="container_modal_buttons_profile">
-                <button class="saveEditPButton">Save</button>
-                <button class="cancelEditPButton">Cancel</button>
+                <button class="saveEditPButton">
+                    <p class="save_text_b">Save<p>
+                   <div id="loading-spinnerE" class="spinner hidden"></div>
+                </button>
+                <button class="cancelEditPButton">
+                <p class="cance_text_b">Cancel</p>
+                </button>
             </div>
         </form>
     </div>
@@ -60,6 +65,14 @@ export async function renderEditProfileModal() {
             Notiflix.Notify.failure("Please only enter letters and numbers without spaces.")
             return 
         }
+        document.querySelector(".save_text_b").style.display = "none";
+        saveButton.disabled = true;
+        saveButton.style.opacity = "0.5";
+        cancelModalButton.disabled = true
+        cancelModalButton.style.opacity = "0.5";
+        
+        document.getElementById("loading-spinnerE").classList.remove("hidden");
+
         editUserProfile(nameuser.value, file)
         .then(() => {
             mainModal.remove();
@@ -67,9 +80,10 @@ export async function renderEditProfileModal() {
         })
         .catch((err) => {
             console.log(err);
-            
             Notiflix.Notify.failure("Ocurrió un error, inténtelo de nuevo más tarde")
+            document.querySelector('.profile_edit_form').reset();
         })
+        document.querySelector('.profile_edit_form').reset();
     });
     mainModal.addEventListener("click", (event) => {
         if (!event.target.closest(".modal_content_profile")) {

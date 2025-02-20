@@ -60,17 +60,25 @@
     flex-direction: row;
     align-items: center;
     justify-content: end;
-    gap: 20px;
+    gap: 10px;
 }
 
 .saveModalButton,
 .cancelModalButton {
-    font-size: 15px;
     border-radius: 5px;
     border: none;
-    width: 130px;
-    align-self: center;
+    width: 100px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.continue_text_b_MC,
+.cancel_text_b_MC {
     color: white;
+    font-size: 15px;
     font-family: "Konkhmer Sleokchher", serif;
 }
 
@@ -101,10 +109,40 @@
     .container_main_modal {
         width: 60%;
     }
+
+    .container_modal_buttons_confirm {
+        gap: 20px;
+    }
+
+    .saveModalButton,
+    .cancelModalButton {
+        width: 130px;
+        height: 30px;
+    }
+
+    .continue_text_b_MC,
+    .cancel_text_b_MC {
+        font-size: 17px;
+    }
 }
 
 @media only screen and (min-width: 920px) {
     .container_main_modal {
         width: 50%;
+    }
+
+    .container_modal_buttons_confirm {
+        gap: 20px;
+    }
+
+    .saveModalButton,
+    .cancelModalButton {
+        width: 130px;
+        height: 30px;
+    }
+
+    .continue_text_b_MC,
+    .cancel_text_b_MC {
+        font-size: 17px;
     }
 }

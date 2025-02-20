@@ -29,6 +29,7 @@ import { initializeApp } from 'firebase/app';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import navigateTo from './main';
+import heic2any from "heic2any";
 
 dayjs.extend(relativeTime);
 
@@ -299,6 +300,17 @@ export const getRelativeTime = (createdAt) => {
 
 export async function uploadImage(file) {
   const formData = new FormData();
+ // Si el archivo es HEIC
+ if (file.type === "image/heic" || file.name.endsWith(".heic")) {
+  try {
+    const convertedBlob = await heic2any({ blob: file, toType: "image/jpeg" });
+    file = new File([convertedBlob], file.name.replace(".heic", ".jpg"), { type: "image/jpeg" });
+  } catch (error) {
+    console.error("Error al convertir HEIC:", error);
+    Notiflix.Notify.failure("No se pudo convertir la imagen HEIC.");
+    return null;
+  }
+}
   formData.append("file", file);
   formData.append("upload_preset", "unsigned_preset"); 
 
